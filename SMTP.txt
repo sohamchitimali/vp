@@ -1,0 +1,67 @@
+SMTP
+
+To demonstrate how to use the SmtpMail class in the .NET Framework to send emails, we'll create a
+simple ASP.NET Web Form.
+
+1. Create an ASP.NET Web Application:
+o Open Visual Studio and create a new ASP.NET Web Application.
+o Choose Web Forms.
+
+2. Design the Web Form (SendMail.aspx):
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SendMail.aspx.cs"
+Inherits="ToDoPlanner.SendMail" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+ <title>Send Mail</title>
+</head>
+<body>
+ <form id="form1" runat="server">
+ <div>
+        <h2>Send Email using SmtpMail</h2>
+         <asp:Label ID="Label1" runat="server" Text="To:"></asp:Label>
+         <asp:TextBox ID="txtTo" runat="server"></asp:TextBox><br />
+         <asp:Label ID="Label2" runat="server" Text="Subject:"></asp:Label>
+         <asp:TextBox ID="txtSubject" runat="server"></asp:TextBox><br />
+         <asp:Label ID="Label3" runat="server" Text="Body:"></asp:Label>
+         <asp:TextBox ID="txtBody" runat="server" TextMode="MultiLine"></asp:TextBox><br />
+         <asp:Button ID="btnSend" runat="server" Text="Send Mail" OnClick="btnSend_Click" /><br/>
+         <asp:Label ID="lblStatus" runat="server" ForeColor="Red"></asp:Label>
+ </div>
+ </form>
+</body>
+</html>
+
+3. Code-Behind (SendMail.aspx.cs):
+
+using System;
+using System.Net.Mail;
+namespace ToDoPlanner
+{
+     public partial class SendMail : System.Web.UI.Page
+     {
+         protected void btnSend_Click(object sender, EventArgs e)
+         {
+             try
+             {
+                 MailMessage mail = new MailMessage();
+                 mail.To.Add(txtTo.Text);
+                 mail.From = new MailAddress("youremail@domain.com"); // Replace with your email
+                 mail.Subject = txtSubject.Text;
+                 mail.Body = txtBody.Text;
+                 SmtpClient smtp = new SmtpClient();
+                 smtp.Host = "smtp.yourserver.com"; // Replace with your SMTP server
+                 smtp.Port = 587; // Replace with SMTP port
+                 smtp.Credentials = new System.Net.NetworkCredential("username", "password"); // Replace with your credentials
+                 smtp.EnableSsl = true;
+                 smtp.Send(mail);
+                 lblStatus.Text = "Email sent successfully!";
+             }
+             catch (Exception ex)
+             {
+                 lblStatus.Text = "Error: " + ex.Message;
+             }
+         }
+     }
+}

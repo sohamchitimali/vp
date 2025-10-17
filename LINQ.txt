@@ -1,0 +1,82 @@
+LINQ
+
+Create a table with given fields
+
+Field Name Type
+EmpNo         Number
+EmpName     Varchar
+EmpSal         Number
+EmpJob         Varchar
+EmpDeptNo     Number
+
+For the given table design a web page to display the employee information from table to grid control. Use
+LINQ to ADO.NET
+
+To use LINQ to ADO.NET to display employee information in a web page, follow these steps:
+
+1. Create the Database Table:
+
+o In SQL Server, run the following SQL to create a table:
+
+CREATE TABLE Employees (
+ EmpNo INT PRIMARY KEY,
+ EmpName VARCHAR(50),
+ EmpSal DECIMAL(10, 2),
+ EmpJob VARCHAR(50),
+ EmpDeptNo INT
+);
+
+2. Create ASP.NET Web Application:
+Create a new ASP.NET Web Forms Application.
+
+3. Add LINQ to SQL Classes:
+
+Right-click on the project and add LINQ to SQL Classes.
+Drag and drop the Employees table onto the designer.
+
+4. Design the Web Form (Employees.aspx):
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Employees.aspx.cs"
+Inherits="ToDoPlanner.Employees" %>
+<!DOCTYPE html>
+<html>
+<head runat="server">
+ <title>Employees Information</title>
+</head>
+<body>
+     <form id="form1" runat="server">
+         <div>
+             <asp:GridView ID="GridView1" runat="server"AutoGenerateColumns="true"></asp:GridView>
+         </div>
+     </form>
+</body>
+</html>
+
+5. Code-Behind (Employees.aspx.cs):
+
+using System;
+using System.Linq;
+namespace ToDoPlanner
+{
+     public partial class Employees : System.Web.UI.Page
+     {
+         protected void Page_Load(object sender, EventArgs e)
+         {
+             if (!IsPostBack)
+             {
+                BindGrid();
+             }
+         }
+
+         private void BindGrid()
+         {
+             using (var context = new EmployeeDataContext())
+             {
+                 var employees = from emp in context.Employees
+                 select emp;
+                 GridView1.DataSource = employees;
+                 GridView1.DataBind();
+             }
+        }
+    }
+}
