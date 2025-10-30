@@ -315,7 +315,7 @@ class Program
 
 
 
-12. Develop the  ASP.NET web application using the master page concept to display college information  
+12. Develop the  ASP.NET web application using the master page concept to display college information
 
 Open Visual Studio
 
@@ -519,7 +519,7 @@ namespace PrivateAssemblyDemo
     }
 }
 
-Right Click on Project PrivateAssemblyDemo Select Add -> Project Reference -> Then Select MathLibrary 
+Right Click on Project PrivateAssemblyDemo Select Add -> Project Reference -> Then Select MathLibrary
 
 
 
@@ -764,7 +764,7 @@ To Download Microsoft SQL EXPRESS Server 2022 Go To https://www.microsoft.com/en
 
 To Download SSMS Go to https://learn.microsoft.com/en-us/ssms/install/install -> Click On Download SSMS 21 -> Run .exe file
 
-Open SSMS (SQL Server Management Studio) 
+Open SSMS (SQL Server Management Studio)
 
 Connection : .\SQLEXPRESS
 
@@ -870,7 +870,7 @@ Expand "SQL Server" → (localdb)\MSSQLLocalDB (if not present, right-click SQL 
 
 Right-click Databases → Add New Database.
 
-Database name: EmployeeDB 
+Database name: EmployeeDB
 
 Expand the new database under (localdb)\MSSQLLocalDB → right-click it → New Query.
 
@@ -895,7 +895,7 @@ CREATE TABLE Employees (
 Run the Query
 
 INSERT INTO Employees (EmpNo, EmpName, EmpSal, EmpJob, EmpDeptNo)
-VALUES 
+VALUES
 (1, 'Alice', 50000, 'Manager', 10),
 (2, 'Bob', 45000, 'Developer', 20),
 (3, 'Charlie', 40000, 'Tester', 30);
@@ -1061,7 +1061,7 @@ namespace SmtpDemo
                 msg.Subject = "Test Mail";
                 msg.Body = "This is a test email sent from ASP.NET using Gmail SMTP.";
 
-                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);v
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);
                 smtp.Credentials = new NetworkCredential("visualprogrammingsmtp@gmail.com", "ojbvqopkdqcxhskt");
                 smtp.EnableSsl = true;
 
@@ -1111,7 +1111,7 @@ EmailPhoneValidation.aspx
     <form runat="server">
         Email:
         <asp:TextBox ID="txtEmail" runat="server" />
-        <asp:RegularExpressionValidator 
+        <asp:RegularExpressionValidator
             ControlToValidate="txtEmail"
             ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
             ErrorMessage="Invalid email!" runat="server" />
@@ -1119,7 +1119,7 @@ EmailPhoneValidation.aspx
 
         Phone:
         <asp:TextBox ID="txtPhone" runat="server" />
-        <asp:RegularExpressionValidator 
+        <asp:RegularExpressionValidator
             ControlToValidate="txtPhone"
             ValidationExpression="^\d{10}$"
             ErrorMessage="Invalid phone!" runat="server" />
@@ -1147,10 +1147,3 @@ https://drive.google.com/drive/folders/1r4zktsljS0RcyOxAvSteKiYA1Z0ukjlh?usp=sha
 
 
 -----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
-
-
-
-
-
-
-
