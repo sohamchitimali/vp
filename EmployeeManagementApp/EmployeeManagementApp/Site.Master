@@ -1,0 +1,30 @@
+﻿<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="EmployeeManagementApp.SiteMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Employee Management System</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <h2>My Employee Management System</h2>
+            <nav>
+                <a href="Default.aspx">Home</a>
+                <a href="EmployeeList.aspx">Employee List</a>
+                <a href="AddEmployee.aspx">Add Employee</a>
+            </nav>
+        </header>
+
+        <hr />
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+        <hr />
+
+        <footer>
+            © 2025 My College
+        </footer>
+    </form>
+</body>
+</html>

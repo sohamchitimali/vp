@@ -1,0 +1,1156 @@
+Basic Programs
+
+1. Write a  C# program to check if a number is prime.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int num = int.Parse(Console.ReadLine());
+        bool isPrime = true;
+
+        if (num <= 1)
+            isPrime = false;
+        else
+        {
+            for (int i = 2; i <= Math.Sqrt(num); i++)
+            {
+                if (num % i == 0)
+                {
+                    isPrime = false;
+                    break;
+                }
+            }
+        }
+
+        Console.WriteLine(isPrime ? $"{num} is a Prime number." : $"{num} is not a Prime number.");
+    }
+}
+
+
+
+2. Write a C# program to print the Fibonacci series up to n terms.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter the number of terms: ");
+        int n = int.Parse(Console.ReadLine());
+        int a = 0, b = 1, c;
+
+        Console.WriteLine("Fibonacci Series:");
+        for (int i = 1; i <= n; i++)
+        {
+            Console.Write(a + " ");
+            c = a + b;
+            a = b;
+            b = c;
+        }
+    }
+}
+
+
+
+3. Write a  C# program to check whether a string is a palindrome.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a string: ");
+        string str = Console.ReadLine();
+        string rev = "";
+
+        for (int i = str.Length - 1; i >= 0; i--)
+            rev += str[i];
+
+        if (str.Equals(rev, StringComparison.OrdinalIgnoreCase))
+            Console.WriteLine("The string is a palindrome.");
+        else
+            Console.WriteLine("The string is not a palindrome.");
+    }
+}
+
+
+
+4. Write a C# program to reverse a number.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int num = int.Parse(Console.ReadLine());
+        int rev = 0;
+
+        while (num > 0)
+        {
+            int digit = num % 10;
+            rev = rev * 10 + digit;
+            num /= 10;
+        }
+
+        Console.WriteLine("Reversed Number: " + rev);
+    }
+}
+
+
+
+5. Write a C# program to find the sum of digits of a number.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        int num = int.Parse(Console.ReadLine());
+        int sum = 0;
+
+        while (num > 0)
+        {
+            sum += num % 10;
+            num /= 10;
+        }
+
+        Console.WriteLine("Sum of digits: " + sum);
+    }
+}
+
+
+
+6. Write a C# program to count the number of vowels in a string.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a string: ");
+        string str = Console.ReadLine().ToLower();
+        int count = 0;
+
+        foreach (char ch in str)
+        {
+            if ("aeiou".Contains(ch))
+                count++;
+        }
+
+        Console.WriteLine("Number of vowels: " + count);
+    }
+}
+
+
+
+7. Demonstrate some basic string manipulation using methods of both StringBuilder and String classes.
+
+using System;
+using System.Text;
+
+class Program
+{
+    static void Main()
+    {
+        // Using String methods
+        string str = "Hello World";
+        Console.WriteLine("Original String: " + str);
+        Console.WriteLine("Uppercase: " + str.ToUpper());
+        Console.WriteLine("Lowercase: " + str.ToLower());
+        Console.WriteLine("Substring (0,5): " + str.Substring(0, 5));
+        Console.WriteLine("Replace 'World' with 'C#': " + str.Replace("World", "C#"));
+
+        // Using StringBuilder methods
+        StringBuilder sb = new StringBuilder("Welcome");
+        sb.Append(" to C#");
+        sb.Insert(0, "Hi! ");
+        sb.Replace("C#", "DotNet");
+        sb.Remove(0, 4);
+
+        Console.WriteLine("\nUsing StringBuilder:");
+        Console.WriteLine(sb.ToString());
+    }
+}
+
+
+
+8. Write a C# program to split a substring from a given string.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a string: ");
+        string input = Console.ReadLine();
+
+        Console.Write("Enter the start index: ");
+        int start = int.Parse(Console.ReadLine());
+
+        Console.Write("Enter the length: ");
+        int length = int.Parse(Console.ReadLine());
+
+        if (start >= 0 && start + length <= input.Length)
+        {
+            string sub = input.Substring(start, length);
+            Console.WriteLine("Extracted substring: " + sub);
+        }
+        else
+        {
+            Console.WriteLine("Invalid range for substring!");
+        }
+
+        Console.WriteLine("\nSplit example:");
+        string[] parts = input.Split(' ');
+        foreach (string part in parts)
+        {
+            Console.WriteLine(part);
+        }
+    }
+}
+
+
+
+9. C# program to count the odd numbers in the given number
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        string num = Console.ReadLine();
+        int count = 0;
+
+        foreach (char c in num)
+        {
+            int digit = c - '0';
+            if (digit % 2 != 0)
+                count++;
+        }
+
+        Console.WriteLine("Number of odd digits: " + count);
+    }
+}
+
+
+
+10. C# Write a C# program to find the maximum occurring character in a given string.
+
+using System;
+using System.Collections.Generic;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a string: ");
+        string input = Console.ReadLine().ToLower();
+
+        Dictionary<char, int> freq = new Dictionary<char, int>();
+        foreach (char c in input)
+        {
+            if (char.IsLetterOrDigit(c))
+            {
+                if (freq.ContainsKey(c))
+                    freq[c]++;
+                else
+                    freq[c] = 1;
+            }
+        }
+
+        char maxChar = '\0';
+        int maxCount = 0;
+        foreach (var pair in freq)
+        {
+            if (pair.Value > maxCount)
+            {
+                maxCount = pair.Value;
+                maxChar = pair.Key;
+            }
+        }
+
+        Console.WriteLine($"Maximum occurring character: '{maxChar}' ({maxCount} times)");
+    }
+}
+
+
+
+11. Write a program to C# to find the smallest digit for a given value.
+
+using System;
+
+class Program
+{
+    static void Main()
+    {
+        Console.Write("Enter a number: ");
+        string num = Console.ReadLine();
+
+        int smallest = 9;
+
+        foreach (char c in num)
+        {
+            int digit = c - '0';
+            if (digit < smallest)
+                smallest = digit;
+        }
+
+        Console.WriteLine("Smallest digit: " + smallest);
+    }
+}
+
+
+
+12. Develop the  ASP.NET web application using the master page concept to display college information  
+
+Open Visual Studio
+
+Create a new project → ASP.NET Web Application (.NET Framework)
+
+Name it : CollegeInfoApp
+
+Choose WebForm template
+
+Click Create
+
+Remove the Code Present in the main tag in Default.aspx Page
+
+Paste Code in Existing Site.Master File and Run
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="CollegeInfoApp.SiteMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>College Information System</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <h2>My College</h2>
+            <nav>
+                <a href="Default.aspx">Home</a> |
+                <a href="AboutCollege.aspx">About College</a>
+            </nav>
+        </header>
+
+        <hr />
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+        <hr />
+
+        <footer>
+            © 2025 My College
+        </footer>
+    </form>
+</body>
+</html>
+
+
+
+13. Demonstrate how to create windows form that can use HTTP to download and save a resource from a specified URL.
+
+Open Visual Studio
+
+Create a new project → Windows Forms App (.NET Framework)
+
+Name it : HttpDownloaderApp
+
+Click On the Left Hand Side Tools and then drag and drop the following in the form
+
+Add a TextBox (textBoxUrl) for the URL.
+
+Add a Button (buttonDownload) for starting the download.
+
+Double Click the Button and Add the Code Inside the function
+
+string url = textBox1.Text.Trim();
+if (string.IsNullOrEmpty(url))
+{
+    MessageBox.Show("Please enter a URL.");
+    return;
+}
+
+// Save to Documents folder
+string localPath = Environment.GetFolderPath(Environment.SpecialFolder.MyDocuments) + @"\downloaded_file.txt";
+
+try
+{
+    using (WebClient client = new WebClient())
+    {
+        client.DownloadFile(url, localPath);
+    }
+
+    MessageBox.Show($" File downloaded successfully to:\n{localPath}");
+}
+catch (Exception ex)
+{
+    MessageBox.Show(" Error: " + ex.Message);
+}
+
+Click on the Run button and execute the code and enter the below link in the text box as input
+
+https://raw.githubusercontent.com/EbookFoundation/free-programming-books/master/README.md
+
+
+
+14. Design an ASP.NET Web form to create the registration page by using necessary controls.
+
+Open Visual Studio
+
+Create a new project → ASP.NET Web Application (.NET Framework)
+
+Name it : CollegeRegistrationApp
+
+Choose WebForm template
+
+Click Create
+
+Right Click On CollegeRegistrationApp → Add → New Item → Web Form → Name it : Registration.aspx → Create
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Registration.aspx.cs" Inherits="CollegeRegistrationApp.Registration" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Student Registration</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <h2>Registration</h2>
+
+        <p>
+            <asp:Label ID="lblName" runat="server" Text="Name:" />
+            <asp:TextBox ID="txtName" runat="server" />
+        </p>
+
+        <p>
+            <asp:Label ID="lblEmail" runat="server" Text="Email:" />
+            <asp:TextBox ID="txtEmail" runat="server" />
+        </p>
+
+        <p>
+            <asp:Label ID="lblGender" runat="server" Text="Gender:" />
+            <asp:RadioButtonList ID="rblGender" runat="server">
+                <asp:ListItem>Male</asp:ListItem>
+                <asp:ListItem>Female</asp:ListItem>
+            </asp:RadioButtonList>
+        </p>
+
+        <p>
+            <asp:Label ID="lblCountry" runat="server" Text="Country:" />
+            <asp:DropDownList ID="ddlCountry" runat="server">
+                <asp:ListItem>Select Country</asp:ListItem>
+                <asp:ListItem>India</asp:ListItem>
+                <asp:ListItem>USA</asp:ListItem>
+                <asp:ListItem>UK</asp:ListItem>
+            </asp:DropDownList>
+        </p>
+
+        <p>
+            <asp:Button ID="btnRegister" runat="server" Text="Register" />
+        </p>
+    </form>
+</body>
+</html>
+
+
+
+15. Develop the c# console application to create the private assembly and use it in different application.
+
+Open Visual Studio
+
+Create a new project → Console Application
+
+Name it : PrivateAssemblyDemo
+
+Right Click on Solution 'PrivateAssemblyDemo' (Not on the regular PrivateAssemblyDemo) and Click On Add -> NewProject -> Class Library -> Name it : MathLibrary
+
+Rename Class1.cs to Calculator.cs
+
+using System;
+
+namespace MathLibrary
+{
+    public class Calculator
+    {
+        public int Add(int a, int b)
+        {
+            return a + b;
+        }
+    }
+}
+
+Right Click on MathLibrary Project -> Build -> It creates a file like
+
+bin\Debug\MathLibrary.dll
+
+Add Below code Program.cs in a the regular PrivateAssemblyDemo Project
+
+using System;
+using MathLibrary;
+
+namespace PrivateAssemblyDemo
+{
+    class Program
+    {
+        static void Main()
+        {
+            Calculator calc = new Calculator();
+            int result = calc.Add(10, 20);
+            Console.WriteLine("Result from private assembly: " + result);
+            Console.ReadLine();
+        }
+    }
+}
+
+Right Click on Project PrivateAssemblyDemo Select Add -> Project Reference -> Then Select MathLibrary 
+
+
+
+
+16. Implement a C# console application that checks whether the entered email is in proper format or not using regular expressions.
+
+Open Visual Studio
+
+Create a new project → Console Application
+
+using System;
+using System.Text.RegularExpressions;
+
+namespace EmailValidatorApp
+{
+    class Program
+    {
+        static void Main()
+        {
+            Console.Write("Enter your email: ");
+            string email = Console.ReadLine();
+
+            string pattern = @"^[^@\s]+@[^@\s]+\.[^@\s]+$";
+
+            if (Regex.IsMatch(email, pattern))
+            {
+                Console.WriteLine(" Valid email address!");
+            }
+            else
+            {
+                Console.WriteLine(" Invalid email address!");
+            }
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+
+17. Demonstrate the interface inheritance using explicit interface Implementation.
+
+Open Visual Studio
+
+Create a new project → Console Application
+
+using System;
+
+namespace InterfaceInheritanceDemo
+{
+    // Base interface
+    interface animal
+    {
+        void Speak();
+    }
+
+    // Derived interface inherits from animal
+    interface mammal : animal
+    {
+        void Walk();
+    }
+
+    // Class implementing both interfaces explicitly
+    class Dog : mammal
+    {
+        // Explicit interface implementation
+        void animal.Speak()
+        {
+            Console.WriteLine("The dog barks.");
+        }
+
+        void mammal.Walk()
+        {
+            Console.WriteLine("The dog walks on four legs.");
+        }
+
+        // Regular method in the class
+        public void Eat()
+        {
+            Console.WriteLine("The dog eats food.");
+        }
+    }
+
+    class Program
+    {
+        static void Main()
+        {
+            Dog d = new Dog();
+            d.Eat(); // normal method
+
+            // Explicit interface methods can only be called using interface references
+            animal a = d;
+            a.Speak();
+
+            mammal m = d;
+            m.Walk();
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+
+18. write a c# console application  to demonstrate  the  delegates concept
+
+Open Visual Studio
+
+Create a new project → Console Application
+
+using System;
+
+namespace DelegateDemo
+{
+    // Declare a delegate
+    delegate void SimpleDelegate(string message);
+
+    class Program
+    {
+        // Method that matches the delegate signature
+        static void Greet(string msg)
+        {
+            Console.WriteLine(msg);
+        }
+
+        static void Main()
+        {
+            // Create delegate instance pointing to Greet
+            SimpleDelegate del = Greet;
+
+            // Call the method using the delegate
+            del("Hello! This is a delegate demonstration.");
+
+            Console.ReadLine();
+        }
+    }
+}
+
+
+
+19. Create ASP.NET Website Application for Employee Management System with a master page which is linked to other web pages in the application.
+
+Open Visual Studio
+
+Create a new project → ASP.NET Web Application (.NET Framework)
+
+Name it : EmployeeManagementApp
+
+Choose WebForm template
+
+Click Create
+
+Drop the below code in existing Site.Master.cs File
+
+<%@ Master Language="C#" AutoEventWireup="true" CodeBehind="Site.Master.cs" Inherits="EmployeeManagementApp.SiteMaster" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Employee Management System</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <header>
+            <h2>My Employee Management System</h2>
+            <nav>
+                <a href="Default.aspx">Home</a>
+                <a href="EmployeeList.aspx">Employee List</a>
+                <a href="AddEmployee.aspx">Add Employee</a>
+            </nav>
+        </header>
+
+        <hr />
+
+        <asp:ContentPlaceHolder ID="MainContent" runat="server" />
+
+        <hr />
+
+        <footer>
+            © 2025 My College
+        </footer>
+    </form>
+</body>
+</html>
+
+Drop the below code in existing Default.aspx File
+
+<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h3>Welcome to the Employee Management System!</h3>
+    <p>This is the home page with static content. Navigate using the menu above.</p>
+</asp:Content>
+
+
+Right Click On Project Add -> Add Item -> WebForm -> Name it : EmployeeList.aspx
+
+<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h3>Employee List</h3>
+    <ul>
+        <li>John Doe - Manager</li>
+        <li>Jane Smith - Developer</li>
+        <li>Mark Johnson - Designer</li>
+    </ul>
+</asp:Content>
+
+
+Right Click On Project Add -> Add Item -> WebForm -> Name it : AddEmployee.aspx
+
+<%@ Page Language="C#" MasterPageFile="~/Site.Master" AutoEventWireup="true" %>
+
+<asp:Content ID="Content1" ContentPlaceHolderID="MainContent" runat="server">
+    <h3>Add Employee</h3>
+    <p>This page would normally have a form to add employees, but here it is just static content.</p>
+</asp:Content>
+
+
+
+20. Demonstrate how to use LINQ to query data from a database using ADO.NET.
+
+Open Visual Studio
+
+Create a new project → ASP.NET Web Application (.NET Framework)
+
+Name it : Linq
+
+Choose Empty template
+
+Check WebForm CheckBox
+
+Click Create
+
+Right Click On Linq Project Add -> Add Item -> WebForm -> Name it : EmployeeDisplay.aspx
+
+Right Click On Linq Project Add -> Add Item -> LINQ to SQL Classes -> Name it : EmployeeData.dbml
+
+If LINQ to SQL Classes does not exist then Open Visual Studio Installer -> Click On Modify -> Induvidual Components -> Search SQL -> Download LINQ to SQL tools
+
+To Download Microsoft SQL EXPRESS Server 2022 Go To https://www.microsoft.com/en-us/download/details.aspx?id=104781
+
+To Download SSMS Go to https://learn.microsoft.com/en-us/ssms/install/install -> Click On Download SSMS 21 -> Run .exe file
+
+Open SSMS (SQL Server Management Studio) 
+
+Connection : .\SQLEXPRESS
+
+Click On Check Box : Trust Server Certificate
+
+Click Connect
+
+Open Visual Studio -> View -> Server Explorer
+
+Right Click Data Connections -> Add Connection
+
+Data Source : Microsoft SQL Server
+
+Click Continue
+
+Server Name : .\SQLEXPRESS
+
+Click On Check Box : Trust Server Certificate
+
+Click Ok
+
+Right Click Connnection -> New Query
+
+CREATE DATABASE EmployeeDB;
+
+Run the Query
+
+Select EmployeeDB in the DropDownBox
+
+CREATE TABLE Employees (
+    EmpID INT PRIMARY KEY IDENTITY(1,1),
+    EmpName VARCHAR(50),
+    Department VARCHAR(50),
+    Salary DECIMAL(10,2)
+);
+
+Run the Query
+
+INSERT INTO Employees (EmpName, Department, Salary)
+VALUES ('John Doe', 'HR', 45000.00),
+       ('Jane Smith', 'IT', 60000.00),
+       ('Mark Lee', 'Finance', 55000.00);
+
+Run the Query
+
+Right Click Connnection -> Modify Connection -> Inside Connect to a Database enter database name : EmployeeDB
+
+Inside the EmployeeDisplay.aspx Add the following Code inside the Empty div tag
+
+<asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true"></asp:GridView>
+
+Drag and Drop the Employees Table inside Table Folder in EmployeeData.dbml File
+
+Drop below code in EmployeeDisplay.aspx.cs by replacing the existing Page_Load Function
+
+protected void Page_Load(object sender, EventArgs e)
+{
+    if (!IsPostBack)
+    {
+        BindGrid();
+    }
+}
+
+private void BindGrid()
+{
+    try
+    {
+        string conn = ConfigurationManager.ConnectionStrings["EmployeeDBConnectionString"].ConnectionString;
+        using (var db = new DataClasses1DataContext(conn))
+        {
+            var employees = from emp in db.Employees
+                            select emp;
+
+            GridView1.DataSource = employees.ToList();
+            GridView1.DataBind();
+        }
+    }
+    catch (Exception ex)
+    {
+        Response.Write("<div style='color:red'>Error: " + Server.HtmlEncode(ex.Message) + "</div>");
+    }
+}
+
+
+
+Local DB Execution ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+Open Visual Studio
+
+Create a new project → ASP.NET Web Application (.NET Framework)
+
+Name it : Linq
+
+Choose Empty template
+
+Check WebForm CheckBox
+
+Click Create
+
+View → SQL Server Object Explorer (or Server Explorer).
+
+Expand "SQL Server" → (localdb)\MSSQLLocalDB (if not present, right-click SQL Server → Add SQL Server and connect to (localdb)\MSSQLLocalDB).
+
+Right-click Databases → Add New Database.
+
+Database name: EmployeeDB 
+
+Expand the new database under (localdb)\MSSQLLocalDB → right-click it → New Query.
+
+Create the Employees table and insert sample rows (execute this SQL in the New Query window):
+
+CREATE DATABASE EmployeeDB;
+
+Run the Query
+
+USE EmployeeDB;
+
+Run the Query
+
+CREATE TABLE Employees (
+    EmpNo INT PRIMARY KEY,
+    EmpName VARCHAR(50),
+    EmpSal DECIMAL(10, 2),
+    EmpJob VARCHAR(50),
+    EmpDeptNo INT
+);
+
+Run the Query
+
+INSERT INTO Employees (EmpNo, EmpName, EmpSal, EmpJob, EmpDeptNo)
+VALUES 
+(1, 'Alice', 50000, 'Manager', 10),
+(2, 'Bob', 45000, 'Developer', 20),
+(3, 'Charlie', 40000, 'Tester', 30);
+
+Run the Query
+
+Right Click On Linq Project Add -> Add Item -> WebForm -> Name it : Employees.aspx
+
+Employees.aspx
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="Employees.aspx.cs" Inherits="Linq.Employees" %>
+
+<!DOCTYPE html>
+<html>
+<head runat="server">
+    <title>Employees</title>
+</head>
+<body>
+    <form id="form1" runat="server">
+        <div>
+            <asp:GridView ID="GridView1" runat="server" AutoGenerateColumns="true" />
+        </div>
+    </form>
+</body>
+</html>
+
+Employees.aspx.cs
+
+using System;
+using System.Configuration;
+using System.Linq;
+
+namespace Linq
+{
+    public partial class Employees : System.Web.UI.Page
+    {
+        protected void Page_Load(object sender, EventArgs e)
+        {
+            if (!IsPostBack)
+            {
+                BindGrid();
+            }
+        }
+
+        private void BindGrid()
+        {
+            string conn = ConfigurationManager.ConnectionStrings["EmployeeDBConnectionString"].ConnectionString;
+
+            using (var db = new EmployeeDataDataContext(conn))
+            {
+                var employees = from emp in db.Employees
+                                select emp;
+                GridView1.DataSource = employees.ToList();
+                GridView1.DataBind();
+            }
+        }
+    }
+}
+
+
+
+21. Problem Definition:
+
+Create a base class Employee with the following data members:
+
+name
+employeeID
+salary
+Derive two classes from Employee:
+FullTimeEmployee
+PartTimeEmployee
+
+Each derived class should implement a method CalculateSalary() as follows:
+FullTimeEmployee Salary Formula:
+salary = (basicSalary * numberOfDays) + HRA + DA
+PartTimeEmployee Salary Formula:
+salary = dailyWages * numberOfDays
+
+Display the employee details along with the calculated salary
+
+using System;
+
+class Employee
+{
+    public string name; public int id; public double salary;
+    public virtual void CalculateSalary() { }
+    public void Display() => Console.WriteLine($"{name} ({id}) Salary: {salary}");
+}
+
+class FullTimeEmployee : Employee
+{
+    double basic, days, hra, da;
+    public FullTimeEmployee(string n, int i, double b, double d, double h, double da_)
+    { name = n; id = i; basic = b; days = d; hra = h; da = da_; }
+    public override void CalculateSalary() => salary = (basic * days) + hra + da;
+}
+
+class PartTimeEmployee : Employee
+{
+    double wage, days;
+    public PartTimeEmployee(string n, int i, double w, double d)
+    { name = n; id = i; wage = w; days = d; }
+    public override void CalculateSalary() => salary = wage * days;
+}
+
+class Program
+{
+    static void Main()
+    {
+        var f = new FullTimeEmployee("Alice", 1, 500, 20, 2000, 1500);
+        var p = new PartTimeEmployee("Bob", 2, 300, 10);
+        f.CalculateSalary(); p.CalculateSalary();
+        f.Display(); p.Display();
+    }
+}
+
+
+
+22. Develop ASP.NET web form to demonstrate how to use the SmtpMail class to send the mail in the .Net Framework
+
+Open Visual Studio
+
+Create a new project → ASP.NET Web Application (.NET Framework)
+
+Name it : SmtpDemo
+
+Choose WebForm template
+
+Click Create
+
+Right Click On Project Add -> Add Item -> WebForm -> Name it : SendMail.aspx
+
+SendMail.aspx
+
+<%@ Page Language="C#" AutoEventWireup="true" CodeBehind="SendMail.aspx.cs" Inherits="SmtpDemo.SendMail" %>
+
+<html>
+<body>
+    <form runat="server">
+        <asp:Button ID="btnSend" runat="server" Text="Send Mail" OnClick="btnSend_Click" />
+        <asp:Label ID="lblMsg" runat="server" />
+    </form>
+</body>
+</html>
+
+SendMail.aspx.cs
+
+using System;
+using System.Net;
+using System.Net.Mail;
+
+namespace SmtpDemo
+{
+    public partial class SendMail : System.Web.UI.Page
+    {
+        protected void btnSend_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                MailMessage msg = new MailMessage();
+                msg.From = new MailAddress("visualprogrammingsmtp@gmail.com");
+                msg.To.Add("visualprogrammingsmtp@gmail.com"); // add your mail
+                msg.Subject = "Test Mail";
+                msg.Body = "This is a test email sent from ASP.NET using Gmail SMTP.";
+
+                SmtpClient smtp = new SmtpClient("smtp.gmail.com", 587);v
+                smtp.Credentials = new NetworkCredential("visualprogrammingsmtp@gmail.com", "ojbvqopkdqcxhskt");
+                smtp.EnableSsl = true;
+
+                smtp.Send(msg);
+
+                lblMsg.Text = "Mail sent successfully!";
+            }
+            catch (Exception ex)
+            {
+                lblMsg.Text = "Error: " + ex.Message;
+            }
+        }
+    }
+}
+
+
+
+23. Demonstrate the procedure to validate an email address and phone number in ASP.NET page
+
+Open Visual Studio
+
+Create a new project → ASP.NET Web Application (.NET Framework)
+
+Name it : ValidationDemo
+
+Choose WebForm template
+
+Click Create
+
+Right Click On Project Add -> Add Item -> WebForm -> Name it : EmailPhoneValidation.aspx
+
+EmailPhoneValidation.aspx
+
+<%@ Page Language="C#" AutoEventWireup="true" %>
+<script runat="server">
+    protected void btnSubmit_Click(object sender, EventArgs e)
+    {
+        if (Page.IsValid)
+            lblResult.Text = "Validation Successful";
+        else
+            lblResult.Text = "";
+    }
+</script>
+
+<html>
+<body>
+    <form runat="server">
+        Email:
+        <asp:TextBox ID="txtEmail" runat="server" />
+        <asp:RegularExpressionValidator 
+            ControlToValidate="txtEmail"
+            ValidationExpression="^[^@\s]+@[^@\s]+\.[^@\s]+$"
+            ErrorMessage="Invalid email!" runat="server" />
+        <br />
+
+        Phone:
+        <asp:TextBox ID="txtPhone" runat="server" />
+        <asp:RegularExpressionValidator 
+            ControlToValidate="txtPhone"
+            ValidationExpression="^\d{10}$"
+            ErrorMessage="Invalid phone!" runat="server" />
+        <br />
+
+        <asp:Button ID="btnSubmit" runat="server" Text="Submit" OnClick="btnSubmit_Click" />
+        <br />
+        <asp:Label ID="lblResult" runat="server" />
+    </form>
+</body>
+</html>
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+Videos Links
+
+https://cvrac-my.sharepoint.com/:f:/g/personal/22b81a0542_cvr_ac_in/EuEkJbToX19NvmkF2iUn_g4B4DnMr5wvnpqTroVPg-h7rg?e=eLVd4d
+
+https://drive.google.com/drive/folders/1r4zktsljS0RcyOxAvSteKiYA1Z0ukjlh?usp=sharingv
+
+
+
+-----------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------
+
+
+
+
+
+
+

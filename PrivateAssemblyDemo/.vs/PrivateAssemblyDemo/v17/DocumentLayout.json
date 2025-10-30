@@ -3,12 +3,12 @@
   "WorkspaceRootPath": "C:\\Users\\SOHAM\\source\\repos\\PrivateAssemblyDemo\\",
   "Documents": [
     {
-      "AbsoluteMoniker": "D:0:0:{1212719D-F731-4A9B-AE0C-DAE4B1791A8C}|PrivateAssemblyDemo\\PrivateAssemblyDemo.csproj|c:\\users\\soham\\source\\repos\\privateassemblydemo\\privateassemblydemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1212719D-F731-4A9B-AE0C-DAE4B1791A8C}|PrivateAssemblyDemo\\PrivateAssemblyDemo.csproj|solutionrelative:privateassemblydemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{D1E065FB-C60A-483E-9982-13E792A7EC03}|PrivateAssemblyDemo\\PrivateAssemblyDemo.csproj|c:\\users\\soham\\source\\repos\\privateassemblydemo\\privateassemblydemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D1E065FB-C60A-483E-9982-13E792A7EC03}|PrivateAssemblyDemo\\PrivateAssemblyDemo.csproj|solutionrelative:privateassemblydemo\\program.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     },
     {
-      "AbsoluteMoniker": "D:0:0:{1116CF7D-BD47-4971-8DB4-BDD04BEDFB28}|MathLibrary\\MathLibrary.csproj|c:\\users\\soham\\source\\repos\\privateassemblydemo\\mathlibrary\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
-      "RelativeMoniker": "D:0:0:{1116CF7D-BD47-4971-8DB4-BDD04BEDFB28}|MathLibrary\\MathLibrary.csproj|solutionrelative:mathlibrary\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+      "AbsoluteMoniker": "D:0:0:{37A35246-6EB5-4F23-9240-84A9A94DB7E6}|MathLibrary\\MathLibrary.csproj|c:\\users\\soham\\source\\repos\\privateassemblydemo\\mathlibrary\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{37A35246-6EB5-4F23-9240-84A9A94DB7E6}|MathLibrary\\MathLibrary.csproj|solutionrelative:mathlibrary\\calculator.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
     }
   ],
   "DocumentGroupContainers": [
@@ -28,9 +28,9 @@
               "RelativeDocumentMoniker": "MathLibrary\\Calculator.cs",
               "ToolTip": "C:\\Users\\SOHAM\\source\\repos\\PrivateAssemblyDemo\\MathLibrary\\Calculator.cs",
               "RelativeToolTip": "MathLibrary\\Calculator.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAAsAAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA0AAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T16:08:12.14Z",
+              "WhenOpened": "2025-10-29T14:56:10.642Z",
               "EditorCaption": ""
             },
             {
@@ -41,9 +41,9 @@
               "RelativeDocumentMoniker": "PrivateAssemblyDemo\\Program.cs",
               "ToolTip": "C:\\Users\\SOHAM\\source\\repos\\PrivateAssemblyDemo\\PrivateAssemblyDemo\\Program.cs",
               "RelativeToolTip": "PrivateAssemblyDemo\\Program.cs",
-              "ViewState": "AgIAAAAAAAAAAAAAAAAAAA8AAAABAAAAAAAAAA==",
+              "ViewState": "AgIAAAAAAAAAAAAAAAAAABAAAAAAAAAAAAAAAA==",
               "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
-              "WhenOpened": "2025-10-15T16:06:49.529Z",
+              "WhenOpened": "2025-10-29T14:49:52.843Z",
               "EditorCaption": ""
             }
           ]

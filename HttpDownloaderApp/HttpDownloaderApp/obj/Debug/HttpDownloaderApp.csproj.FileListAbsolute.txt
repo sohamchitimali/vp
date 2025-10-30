@@ -8,4 +8,3 @@ C:\Users\SOHAM\source\repos\HttpDownloaderApp\HttpDownloaderApp\obj\Debug\HttpDo
 C:\Users\SOHAM\source\repos\HttpDownloaderApp\HttpDownloaderApp\obj\Debug\HttpDownloaderApp.csproj.CoreCompileInputs.cache
 C:\Users\SOHAM\source\repos\HttpDownloaderApp\HttpDownloaderApp\obj\Debug\HttpDownloaderApp.exe
 C:\Users\SOHAM\source\repos\HttpDownloaderApp\HttpDownloaderApp\obj\Debug\HttpDownloaderApp.pdb
-C:\Users\SOHAM\source\repos\HttpDownloaderApp\HttpDownloaderApp\obj\Debug\HttpDownloaderApp.exe.config

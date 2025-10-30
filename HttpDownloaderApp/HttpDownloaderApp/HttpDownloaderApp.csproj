@@ -4,7 +4,7 @@
   <PropertyGroup>
     <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
     <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{1984E206-BB34-4A2D-B960-67548031EDC9}</ProjectGuid>
+    <ProjectGuid>{9F1E6164-C249-4391-BBCD-F4AC4F48F3AA}</ProjectGuid>
     <OutputType>WinExe</OutputType>
     <RootNamespace>HttpDownloaderApp</RootNamespace>
     <AssemblyName>HttpDownloaderApp</AssemblyName>

@@ -1,0 +1,37 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "C:\\Users\\SOHAM\\source\\repos\\ValidationDemo\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{11204766-47ED-4CF3-84A0-7710FF1801F0}|ValidationDemo\\ValidationDemo.csproj|c:\\users\\soham\\source\\repos\\validationdemo\\validationdemo\\emailphonevalidation.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}",
+      "RelativeMoniker": "D:0:0:{11204766-47ED-4CF3-84A0-7710FF1801F0}|ValidationDemo\\ValidationDemo.csproj|solutionrelative:validationdemo\\emailphonevalidation.aspx||{57312C73-6202-49E9-B1E1-40EA1A6DC1F6}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 0,
+          "Children": [
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "EmailPhoneValidation.aspx",
+              "DocumentMoniker": "C:\\Users\\SOHAM\\source\\repos\\ValidationDemo\\ValidationDemo\\EmailPhoneValidation.aspx",
+              "RelativeDocumentMoniker": "ValidationDemo\\EmailPhoneValidation.aspx",
+              "ToolTip": "C:\\Users\\SOHAM\\source\\repos\\ValidationDemo\\ValidationDemo\\EmailPhoneValidation.aspx",
+              "RelativeToolTip": "ValidationDemo\\EmailPhoneValidation.aspx",
+              "LogicalView": "7651a703-06e5-11d1-8ebd-00a0c90f26ea",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000195|",
+              "WhenOpened": "2025-10-29T18:31:31.789Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}
